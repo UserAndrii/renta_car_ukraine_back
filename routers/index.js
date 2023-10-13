@@ -1,3 +1,4 @@
 const carsRouter = require('./cars');
+const usersRouter = require('./users');
 
-module.exports = { carsRouter };
+module.exports = { usersRouter, carsRouter };

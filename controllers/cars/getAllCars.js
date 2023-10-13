@@ -1,5 +1,5 @@
 const { Cars } = require('../../models/cars');
-const { ctrlWrapper } = require('../../helpers/ctrlWrapper');
+const ctrlWrapper = require('../../helpers/ctrlWrapper');
 
 const getAllCars = async (req, res) => {
   const { page = 1, limit = 20, favorite = false } = req.query;
