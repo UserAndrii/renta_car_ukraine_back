@@ -7,7 +7,7 @@ const validateBody = shema => {
     if (Object.keys(req.body).length === 0)
       next(HttpError(400, 'Missing fields'));
 
-    if (Object.keys(req.body).length < 3 && error)
+    if (Object.keys(req.body).length < 1 && error)
       next(HttpError(400, error.message));
 
     if (error) next(HttpError(404, error.message));

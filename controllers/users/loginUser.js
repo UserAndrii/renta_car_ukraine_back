@@ -21,7 +21,10 @@ const loginUser = async (req, res) => {
   });
   await User.findByIdAndUpdate(user._id, { token });
 
-  res.json({ user: { userName: user.userName, email }, token });
+  res.json({
+    user: { userName: user.userName, email, favoriteCars: user.favoriteCars },
+    token,
+  });
 };
 
 module.exports = ctrlWrapper(loginUser);

@@ -27,6 +27,7 @@ const usersSchema = new Schema({
     type: String,
     required: [true, 'Verify token is required'],
   },
+  favoriteCars: [String],
 });
 
 usersSchema.post('save', handleMongooseError);
