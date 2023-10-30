@@ -33,7 +33,11 @@ const carsSchema = new Schema(
     rentalCompany: { type: String, default: '' },
     address: { type: String, default: '' },
     rentalConditions: { type: String, default: '' },
-    mileage: { type: Number, default: 0 },
+    mileage: {
+      type: Number,
+      default: 0,
+      required: [true, 'Enter the car mileage'],
+    },
   },
   { versionKey: false, timestamps: true }
 );

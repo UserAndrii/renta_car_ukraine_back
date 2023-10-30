@@ -1,3 +1,3 @@
-// const { addFavoriteCarsSchemas } = require('./ addFavoriteCarsShema');
+const { addNewRentCarSchema } = require('./addNewRentCarSchema');
 
-// module.exports = { addFavoriteCarsSchemas };
+module.exports = { addNewRentCarSchema };
