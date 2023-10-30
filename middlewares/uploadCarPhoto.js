@@ -17,8 +17,8 @@ const storage = new CloudinaryStorage({
     folder: 'cars',
     allowed_formats: ['jpg', 'jpeg', 'png'],
     transformation: {
-      width: 500,
-      height: 500,
+      width: 600,
+      height: 400,
       crop: 'fill',
     },
   },

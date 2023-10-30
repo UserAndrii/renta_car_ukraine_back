@@ -5,7 +5,11 @@ const getAllCars = async (req, res) => {
   const { page = 1, limit = 100 } = req.query;
   const skip = (page - 1) * limit;
 
-  const cars = await Cars.find({}, '-createdAt -updatedAt', { skip, limit });
+  const cars = await Cars.find({}, '-createdAt -updatedAt', {
+    skip,
+    limit,
+  }).sort({ createdAt: -1 });
+
   res.json(cars);
 };
 

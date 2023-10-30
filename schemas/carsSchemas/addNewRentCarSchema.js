@@ -50,6 +50,18 @@ const addNewRentCarSchema = Joi.object({
     'any.required': 'Enter the car price',
     'string.empty': 'The "rentalPrice" field must not be empty',
   }),
+  rentalCompany: Joi.string().required().messages({
+    'any.required': 'Enter the rental company',
+    'string.empty': 'The "rentalCompany" field must not be empty',
+  }),
+  address: Joi.string().required().messages({
+    'any.required': 'Enter the rental company address',
+    'string.empty': 'The "address" field must not be empty',
+  }),
+  rentalConditions: Joi.string().required().messages({
+    'any.required': 'Enter the rental conditions',
+    'string.empty': 'The "rentalConditions" field must not be empty',
+  }),
   mileage: Joi.number().integer().min(0).required().messages({
     'any.required': 'Enter the car mileage',
     'number.base': 'The "mileage" field must be a number',
