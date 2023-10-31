@@ -1,3 +1,4 @@
-const { addNewRentCarSchema } = require('./addNewRentCarSchema');
+const { rentalCarSchema } = require('./rentalCarSchema');
+const { updateRentalCarSchema } = require('./updateRentalCarSchema');
 
-module.exports = { addNewRentCarSchema };
+module.exports = { rentalCarSchema, updateRentalCarSchema };

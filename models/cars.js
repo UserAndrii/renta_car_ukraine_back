@@ -25,7 +25,7 @@ const carsSchema = new Schema(
     },
     img: { type: String, default: '' },
     description: { type: String, default: '' },
-    fuelConsumption: { type: Number, default: 0 },
+    fuelConsumption: { type: String, default: '0.0' },
     engineSize: { type: String, required: [true, 'Enter the car engine size'] },
     accessories: { type: [String], default: [] },
     functionalities: { type: [String], default: [] },
