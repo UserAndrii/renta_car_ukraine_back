@@ -1,9 +1,9 @@
 const Joi = require('joi');
 
-const { regexp } = require('../../helpers');
+const { emailRegexp } = require('../../helpers');
 
 const loginSchema = Joi.object({
-  email: Joi.string().trim().pattern(regexp.emailRegexp).required().messages({
+  email: Joi.string().trim().pattern(emailRegexp).required().messages({
     'any.required': 'Missing required email field',
     'string.empty': 'The "email" field must not be empty',
     'string.pattern.base': 'Invalid email format',

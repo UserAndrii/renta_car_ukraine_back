@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const { v4: uuidv4 } = require('uuid');
 
 const { User } = require('../../models/users');
-const { HttpError, sendEmail, ctrlWrapper } = require('../../helpers');
+const { HttpError, sendEmail, ctrlWrapper, isAdmin } = require('../../helpers');
 
 const { SECRET_KEY } = process.env;
 
@@ -25,13 +25,15 @@ const registerUser = async (req, res) => {
 
   const token = jwt.sign({ id: newUser._id }, SECRET_KEY, { expiresIn: '1h' });
 
-  const update = await User.findByIdAndUpdate(newUser._id, { token });
+  await User.findByIdAndUpdate(newUser._id, { token });
 
-  console.log(update);
+  // await sendEmail(email, verificationToken);
 
-  await sendEmail(email, verificationToken);
-
-  res.status(201).json({ user: { userName, email }, token });
+  res.status(201).json({
+    user: { userName, email, verify: false },
+    verificationToken,
+    token,
+  });
 };
 
 module.exports = ctrlWrapper(registerUser);

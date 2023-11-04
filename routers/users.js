@@ -17,6 +17,9 @@ router.post('/login', validateBody(loginSchema), ctrl.loginUser);
 router.get('/current', authenticate, ctrl.getCurrentUser);
 router.post('/logout', authenticate, ctrl.logOutUser);
 
+router.get('/verify/:verificationToken', ctrl.verifyUserEmail);
+router.get('/verify', authenticate, ctrl.resendVerifyUserEmail);
+
 router.patch(
   '/favorite',
   authenticate,

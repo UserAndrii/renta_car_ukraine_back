@@ -2,11 +2,13 @@ const handleMongooseError = require('./handleMongooseError');
 const HttpError = require('./HttpError');
 const sendEmail = require('./sendEmail');
 const ctrlWrapper = require('./ctrlWrapper');
+const isAdmin = require('./isAdmin');
 
-const regexp = require('./regexp');
+const { emailRegexp } = require('./regexp');
 
 module.exports = {
-  regexp,
+  emailRegexp,
+  isAdmin,
   sendEmail,
   HttpError,
   ctrlWrapper,

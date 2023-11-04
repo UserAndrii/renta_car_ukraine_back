@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const { SECRET_KEY } = process.env;
 
 const { User } = require('../../models/users');
-const { HttpError, ctrlWrapper } = require('../../helpers');
+const { HttpError, ctrlWrapper, isAdmin } = require('../../helpers');
 
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
@@ -19,10 +19,19 @@ const loginUser = async (req, res) => {
   const token = jwt.sign({ id: user._id }, SECRET_KEY, {
     expiresIn: user.verify ? '23h' : '1h',
   });
-  await User.findByIdAndUpdate(user._id, { token });
+
+  const admin = isAdmin(email, user.verify);
+
+  await User.findByIdAndUpdate(user._id, { token, admin });
 
   res.json({
-    user: { userName: user.userName, email, favoriteCars: user.favoriteCars },
+    user: {
+      userName: user.userName,
+      email,
+      verify: user.verify,
+      favoriteCars: user.favoriteCars,
+    },
+    admin,
     token,
   });
 };

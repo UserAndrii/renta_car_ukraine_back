@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 
 const { handleMongooseError } = require('../helpers');
 
-const { regexp } = require('../helpers');
+const { emailRegexp } = require('../helpers');
 
 /**
  *  Mongoose Schema
@@ -14,7 +14,7 @@ const usersSchema = new Schema({
     type: String,
     required: [true, 'Email is required'],
     unique: true,
-    match: [regexp.emailRegexp, 'Invalid email format'],
+    match: [emailRegexp, 'Invalid email format'],
   },
   password: {
     type: String,
@@ -28,6 +28,7 @@ const usersSchema = new Schema({
     required: [true, 'Verify token is required'],
   },
   favoriteCars: [String],
+  admin: { type: Boolean, default: false },
 });
 
 usersSchema.post('save', handleMongooseError);
