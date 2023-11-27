@@ -6,7 +6,7 @@ const updateRentCar = async (req, res) => {
 
   const result = await Cars.findByIdAndUpdate(
     id,
-    { $set: req.body },
+    { $set: req.file ? { ...req.body, img: req.file.path } : req.body },
     { new: true }
   );
 

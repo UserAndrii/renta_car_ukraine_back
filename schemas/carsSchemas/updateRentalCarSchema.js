@@ -33,6 +33,7 @@ const updateRentalCarSchema = Joi.object({
       'Mid-size Car',
       'Full-size Car',
       'SUV',
+      'Sedan',
       'Crossover',
       'Convertible',
       'Sports Car',
@@ -46,10 +47,6 @@ const updateRentalCarSchema = Joi.object({
       'string.empty': 'The "type" field must not be empty',
       'any.only': 'Invalid car type',
     }),
-
-  img: Joi.string().trim().optional().empty(true).messages({
-    'string.base': 'The img must be a string.',
-  }),
 
   description: Joi.string().trim().empty(true).optional().messages({
     'string.base': 'The description must be a string.',
@@ -67,7 +64,7 @@ const updateRentalCarSchema = Joi.object({
   accessories: Joi.array()
     .optional()
     .items(
-      Joi.string().empty('').messages({
+      Joi.string().empty(true).messages({
         'string.base': 'Accessories must be a string.',
       })
     ),
@@ -75,7 +72,7 @@ const updateRentalCarSchema = Joi.object({
   functionalities: Joi.array()
     .optional()
     .items(
-      Joi.string().empty('').messages({
+      Joi.string().empty(true).messages({
         'string.base': 'Functionality must be a string.',
       })
     ),

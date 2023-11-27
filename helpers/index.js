@@ -3,6 +3,7 @@ const HttpError = require('./HttpError');
 const sendEmail = require('./sendEmail');
 const ctrlWrapper = require('./ctrlWrapper');
 const isAdmin = require('./isAdmin');
+const transformStringFields = require('./transformStringFields');
 
 const { emailRegexp } = require('./regexp');
 
@@ -13,4 +14,5 @@ module.exports = {
   HttpError,
   ctrlWrapper,
   handleMongooseError,
+  transformStringFields,
 };

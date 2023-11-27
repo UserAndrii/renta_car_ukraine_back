@@ -34,6 +34,7 @@ const rentalCarSchema = Joi.object({
       'Mid-size Car',
       'Full-size Car',
       'SUV',
+      'Sedan',
       'Crossover',
       'Convertible',
       'Sports Car',
@@ -47,11 +48,7 @@ const rentalCarSchema = Joi.object({
       'any.only': 'Invalid car type',
     }),
 
-  img: Joi.string().trim().empty(true).optional().messages({
-    'string.base': 'The img must be a string.',
-  }),
-
-  description: Joi.string().trim().empty(true).optional().messages({
+  description: Joi.string().empty(true).optional().messages({
     'string.base': 'The description must be a string.',
   }),
 
@@ -64,21 +61,29 @@ const rentalCarSchema = Joi.object({
     'string.empty': 'The "engineSize" field must not be empty',
   }),
 
-  accessories: Joi.array()
-    .optional()
-    .items(
-      Joi.string().empty('').messages({
-        'string.base': 'Accessories must be a string.',
-      })
-    ),
+  accessories: Joi.string().allow(null).empty(true).messages({
+    'string.base': 'Accessories must be a string.',
+  }),
 
-  functionalities: Joi.array()
-    .optional()
-    .items(
-      Joi.string().empty('').messages({
-        'string.base': 'Functionality must be a string.',
-      })
-    ),
+  functionalities: Joi.string().allow(null).empty(true).messages({
+    'string.base': 'Functionality must be a string.',
+  }),
+
+  // accessories: Joi.array()
+  //   .optional()
+  //   .items(
+  //     Joi.string().empty(true).messages({
+  //       'string.base': 'Accessories must be a string.',
+  //     })
+  //   ),
+
+  // functionalities: Joi.array()
+  //   .optional()
+  //   .items(
+  //     Joi.string().empty(true).messages({
+  //       'string.base': 'Functionality must be a string.',
+  //     })
+  //   ),
 
   rentalPrice: Joi.string().required().messages({
     'any.required': 'Enter the car price',
@@ -95,7 +100,7 @@ const rentalCarSchema = Joi.object({
     'string.empty': 'The "address" field must not be empty',
   }),
 
-  rentalConditions: Joi.string().required().messages({
+  rentalConditions: Joi.string().messages({
     'any.required': 'Enter the rental conditions',
     'string.empty': 'The "rentalConditions" field must not be empty',
   }),

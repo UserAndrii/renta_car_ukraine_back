@@ -15,6 +15,7 @@ const carsSchema = new Schema(
         'Mid-size Car',
         'Full-size Car',
         'SUV',
+        'Sedan',
         'Crossover',
         'Convertible',
         'Sports Car',

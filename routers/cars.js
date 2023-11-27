@@ -27,8 +27,8 @@ router.post(
 
 router.patch(
   '/:id',
-  authenticate,
   isValidId,
+  authenticate,
   uploadCarPhoto.single('img'),
   validateBody(updateRentalCarSchema),
   ctrl.updateRentCar

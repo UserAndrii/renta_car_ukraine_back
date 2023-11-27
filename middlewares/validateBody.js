@@ -1,7 +1,8 @@
-const { HttpError } = require('../helpers');
+const { HttpError, transformStringFields } = require('../helpers');
 
 const validateBody = shema => {
   const func = async (req, _, next) => {
+    transformStringFields(req);
     const { error } = shema.validate(req.body);
 
     if (Object.keys(req.body).length === 0)

@@ -13,14 +13,13 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
 
-  params: {
-    folder: 'cars',
-    allowed_formats: ['jpg', 'jpeg', 'png'],
-    transformation: {
-      width: 600,
-      height: 400,
-      crop: 'fill',
-    },
+  params: req => {
+    return {
+      folder: 'cars',
+      allowed_formats: ['jpg', 'jpeg', 'png', 'avif'],
+      public_id: `${req.user._id}`,
+      transformation: { width: 600, height: 400, crop: 'fill' },
+    };
   },
 });
 
