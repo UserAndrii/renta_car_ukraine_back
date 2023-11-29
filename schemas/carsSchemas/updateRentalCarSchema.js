@@ -61,21 +61,13 @@ const updateRentalCarSchema = Joi.object({
     'string.empty': 'The "engineSize" field must not be empty',
   }),
 
-  accessories: Joi.array()
-    .optional()
-    .items(
-      Joi.string().empty(true).messages({
-        'string.base': 'Accessories must be a string.',
-      })
-    ),
+  accessories: Joi.string().allow(null).empty(true).messages({
+    'string.base': 'Accessories must be a string.',
+  }),
 
-  functionalities: Joi.array()
-    .optional()
-    .items(
-      Joi.string().empty(true).messages({
-        'string.base': 'Functionality must be a string.',
-      })
-    ),
+  functionalities: Joi.string().allow(null).empty(true).messages({
+    'string.base': 'Functionality must be a string.',
+  }),
 
   rentalPrice: Joi.string().optional().messages({
     'any.required': 'Enter the car price',

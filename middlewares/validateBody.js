@@ -2,8 +2,8 @@ const { HttpError, transformStringFields } = require('../helpers');
 
 const validateBody = shema => {
   const func = async (req, _, next) => {
-    transformStringFields(req);
     const { error } = shema.validate(req.body);
+    transformStringFields(req);
 
     if (Object.keys(req.body).length === 0)
       next(HttpError(400, 'Missing fields'));

@@ -69,22 +69,6 @@ const rentalCarSchema = Joi.object({
     'string.base': 'Functionality must be a string.',
   }),
 
-  // accessories: Joi.array()
-  //   .optional()
-  //   .items(
-  //     Joi.string().empty(true).messages({
-  //       'string.base': 'Accessories must be a string.',
-  //     })
-  //   ),
-
-  // functionalities: Joi.array()
-  //   .optional()
-  //   .items(
-  //     Joi.string().empty(true).messages({
-  //       'string.base': 'Functionality must be a string.',
-  //     })
-  //   ),
-
   rentalPrice: Joi.string().required().messages({
     'any.required': 'Enter the car price',
     'string.empty': 'The "rentalPrice" field must not be empty',
