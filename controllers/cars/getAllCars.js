@@ -2,7 +2,6 @@ const { Cars } = require('../../models/cars');
 const ctrlWrapper = require('../../helpers/ctrlWrapper');
 
 const getAllCars = async (req, res) => {
-  console.log(req.query);
   const { page = 1, limit = 100 } = req.query;
   const skip = (page - 1) * limit;
 
