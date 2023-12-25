@@ -15,6 +15,7 @@ const validateBody = shema => {
 
     next();
   };
+
   return func;
 };
 

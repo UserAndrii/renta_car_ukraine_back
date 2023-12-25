@@ -6,11 +6,8 @@ const ctrl = require('../controllers/users');
 const authenticate = require('../middlewares/authenticate');
 
 const { validateBody } = require('../middlewares');
-const {
-  registerSchema,
-  loginSchema,
-  favoriteCarSchema,
-} = require('../schemas/authSchemas');
+const { registerSchema, loginSchema } = require('../schemas/authSchemas');
+const { favoriteCarSchema } = require('../schemas/carsSchemas');
 
 router.post('/register', validateBody(registerSchema), ctrl.registerUser);
 router.post('/login', validateBody(loginSchema), ctrl.loginUser);
@@ -20,18 +17,11 @@ router.post('/logout', authenticate, ctrl.logOutUser);
 router.get('/verify/:verificationToken', ctrl.verifyUserEmail);
 router.get('/verify', authenticate, ctrl.resendVerifyUserEmail);
 
-router.patch(
+router.post(
   '/favorite',
   authenticate,
   validateBody(favoriteCarSchema),
-  ctrl.addUsersFavoriteCar
-);
-
-router.delete(
-  '/favorite',
-  authenticate,
-  validateBody(favoriteCarSchema),
-  ctrl.deleteUsersFavoriteCar
+  ctrl.toggleUsersFavoriteCar
 );
 
 module.exports = router;

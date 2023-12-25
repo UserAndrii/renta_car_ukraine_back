@@ -6,8 +6,7 @@ const logOutUser = require('./logoutUser');
 const verifyUserEmail = require('./verifyUserEmail');
 const resendVerifyUserEmail = require('./resendVerifyUserEmail');
 
-const addUsersFavoriteCar = require('./addUsersFavoriteCar');
-const deleteUsersFavoriteCar = require('./deleteUsersFavoriteCar');
+const toggleUsersFavoriteCar = require('../users/toggleUsersFavoriteCar');
 
 module.exports = {
   registerUser,
@@ -17,7 +16,5 @@ module.exports = {
 
   verifyUserEmail,
   resendVerifyUserEmail,
-
-  addUsersFavoriteCar,
-  deleteUsersFavoriteCar,
+  toggleUsersFavoriteCar,
 };

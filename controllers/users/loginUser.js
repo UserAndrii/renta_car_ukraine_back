@@ -29,10 +29,10 @@ const loginUser = async (req, res) => {
       userName: user.userName,
       email,
       verify: user.verify,
-      favoriteCars: user.favoriteCars,
     },
     admin,
     token,
+    favoriteCars: user.favoriteCars,
   });
 };
 
