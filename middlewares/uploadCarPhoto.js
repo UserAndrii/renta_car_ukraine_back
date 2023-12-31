@@ -17,7 +17,6 @@ const storage = new CloudinaryStorage({
     return {
       folder: 'cars',
       allowed_formats: ['jpg', 'jpeg', 'png', 'avif', 'webp'],
-      public_id: `${req.user._id}`,
       transformation: { width: 600, height: 400, crop: 'fill' },
     };
   },

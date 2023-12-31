@@ -27,7 +27,7 @@ const registerUser = async (req, res) => {
 
   await User.findByIdAndUpdate(newUser._id, { token });
 
-  // await sendEmail(email, verificationToken);
+  await sendEmail(email, verificationToken);
 
   res.status(201).json({
     user: { userName, email, verify: false },
