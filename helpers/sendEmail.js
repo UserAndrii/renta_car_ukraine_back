@@ -14,7 +14,7 @@ const sendEmail = async (email, verificationToken) => {
       <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; background-color: #f4f4f4; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
         <h2 style="color: #4285f4; text-align: center;">Dear User,</h2>
         <p style="color: #555555; text-align: justify;">Thank you for registering on our website. To complete the registration process, please verify your email by clicking the link below:</p>
-        <p style="text-align: center; margin-top: 20px;"><a style="display: inline-block; padding: 15px 30px; background-color: #4CAF50; color: #ffffff; text-decoration: none; border-radius: 5px; font-weight: bold; letter-spacing: 1px;" target="_blank" href="${BASE_URL}/users/verify/${verificationToken}">Verify Email</a></p>
+        <p style="text-align: center; margin-top: 20px;"><a style="display: inline-block; padding: 15px 30px; background-color: #4CAF50; color: #ffffff; text-decoration: none; border-radius: 5px; font-weight: bold; letter-spacing: 1px;" target="_blank" href="https://github.com/UserAndrii/renta_car_ukraine/verify/${verificationToken}">Verify Email</a></p>
         <p style="color: #555555; text-align: justify;">If you didn't sign up on our website, please ignore this email.</p>
         <p style="color: #777777; text-align: right; margin-top: 30px;">Best regards,<br>Our Website Team</p>
       </div>
