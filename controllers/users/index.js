@@ -4,10 +4,11 @@ const getCurrentUser = require('./getCurrentUser');
 const logOutUser = require('./logoutUser');
 const updateUser = require('./updateUser');
 
+const toggleUsersFavoriteCar = require('../users/toggleUsersFavoriteCar');
+
 const verifyUserEmail = require('./verifyUserEmail');
 const resendVerifyUserEmail = require('./resendVerifyUserEmail');
-
-const toggleUsersFavoriteCar = require('../users/toggleUsersFavoriteCar');
+const letterOnGrantingAdminPermissions = require('./letterOnGrantingAdminPermissions');
 
 module.exports = {
   registerUser,
@@ -16,7 +17,9 @@ module.exports = {
   logOutUser,
   updateUser,
 
+  toggleUsersFavoriteCar,
+
   verifyUserEmail,
   resendVerifyUserEmail,
-  toggleUsersFavoriteCar,
+  letterOnGrantingAdminPermissions,
 };

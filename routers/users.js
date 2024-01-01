@@ -11,12 +11,12 @@ const {
   loginSchema,
   updateShema,
 } = require('../schemas/authSchemas');
-const { favoriteCarSchema } = require('../schemas/carsSchemas');
 
 router.post('/register', validateBody(registerSchema), ctrl.registerUser);
 router.post('/login', validateBody(loginSchema), ctrl.loginUser);
 router.get('/current', authenticate, ctrl.getCurrentUser);
 router.post('/logout', authenticate, ctrl.logOutUser);
+router.get('/accessed', authenticate, ctrl.letterOnGrantingAdminPermissions);
 router.patch(
   '/update',
   authenticate,
@@ -27,11 +27,6 @@ router.patch(
 router.get('/verify/:verificationToken', ctrl.verifyUserEmail);
 router.get('/verify', authenticate, ctrl.resendVerifyUserEmail);
 
-router.post(
-  '/favorite',
-  authenticate,
-  validateBody(favoriteCarSchema),
-  ctrl.toggleUsersFavoriteCar
-);
+router.post('/favorite', authenticate, ctrl.toggleUsersFavoriteCar);
 
 module.exports = router;

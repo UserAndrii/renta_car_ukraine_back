@@ -23,7 +23,7 @@ const registerUser = async (req, res) => {
     verificationToken,
   });
 
-  const token = jwt.sign({ id: newUser._id }, SECRET_KEY, { expiresIn: '1h' });
+  const token = jwt.sign({ id: newUser._id }, SECRET_KEY, { expiresIn: '23h' });
 
   await User.findByIdAndUpdate(newUser._id, { token });
 
