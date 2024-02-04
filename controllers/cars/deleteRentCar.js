@@ -8,7 +8,7 @@ const deleteRentCar = async (req, res) => {
 
   if (!result) throw HttpError(404, 'Not Found');
 
-  res.json({ message: 'Cars deleted' });
+  res.status(204).json({ message: 'Cars deleted' });
 };
 
 module.exports = ctrlWrapper(deleteRentCar);

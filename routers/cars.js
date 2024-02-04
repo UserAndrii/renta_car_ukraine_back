@@ -78,7 +78,7 @@ router.get('/all', ctrl.getAllCars);
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/schemas/carsSchemas/rentalCarSchema'
+ *             $ref: '../schemas/carsSchemas/rentalCarSchema'
  *     responses:
  *       '201':
  *         description: Successful response
@@ -142,7 +142,7 @@ router.post(
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/schemas/carsSchemas/updateRentalCarSchema'
+ *             $ref: '../schemas/carsSchemas/updateRentalCarSchema'
  *     responses:
  *       '200':
  *         description: Successful response
@@ -203,7 +203,7 @@ router.patch(
  *         schema:
  *           type: string
  *     responses:
- *       '200':
+ *       '204':
  *         description: Cars deleted
  */
 
