@@ -34,7 +34,7 @@ This repository contains the backend code for a Rental Car System. It provides R
 #### 3. Set up environment variables:
 Create a .env file in the root directory and add the following:
 
-```json
+```env
 PORT=3000
 MONGODB_URI=your-mongodb-uri
 JWT_SECRET=your-jwt-secret
