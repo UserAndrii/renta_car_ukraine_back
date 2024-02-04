@@ -6,6 +6,8 @@ const cors = require('cors');
 const { usersRouter, carsRouter } = require('./routers');
 
 const app = express();
+const swaggerUi = require('swagger-ui-express');
+const swaggerOptions = require('./swaggerOptions');
 
 const formatsLogger = app.get('env') === 'development' ? 'dev' : 'short';
 
@@ -14,6 +16,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerOptions));
 app.use('/users', usersRouter);
 app.use('/cars', carsRouter);
 
